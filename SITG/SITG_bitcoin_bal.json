@@ -1,0 +1,23 @@
+{
+    "apiVersion": "2023-04-25",
+    "requestId": "65159804999496dd3cdcf9fb",
+    "context": "SITG",
+    "data": {
+        "limit": 50,
+        "offset": 0,
+        "total": 1,
+        "items": [
+            {
+                "contractAddress": "No Contract!",
+                "type": [
+                    "BTC"
+                ],
+                "confirmedBalance": "1.46078073",
+                "name": [
+                    "BTC"
+                ],
+                "symbol": "BTC"
+            }
+        ]
+    }
+}
