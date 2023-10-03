@@ -5,6 +5,8 @@ import time
 import re
 import requests
 
+
+
 # unless testnet required, network is always mainnet
 network = str("mainnet")
 http = urllib3.PoolManager()

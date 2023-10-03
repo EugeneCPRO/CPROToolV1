@@ -1,6 +1,6 @@
 {
     "apiVersion": "2023-04-25",
-    "requestId": "651647fd07ba3b8e3b595b2b",
+    "requestId": "651bb47cbf9ae6cbf23b196c",
     "context": "SITG",
     "data": {
         "limit": 50,
@@ -66,7 +66,7 @@
             {
                 "contractAddress": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
                 "type": "ERC-20",
-                "confirmedBalance": "3.041085512589897375",
+                "confirmedBalance": "3.04226957758232413",
                 "name": "Liquid staked Ether 2.0",
                 "symbol": "stETH"
             },

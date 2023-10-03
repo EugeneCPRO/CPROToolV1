@@ -9,13 +9,9 @@
         "items": [
             {
                 "contractAddress": "No Contract!",
-                "type": [
-                    "BTC"
-                ],
+                "type": "BTC",
                 "confirmedBalance": "1.46078073",
-                "name": [
-                    "BTC"
-                ],
+                "name": "BTC",
                 "symbol": "BTC"
             }
         ]

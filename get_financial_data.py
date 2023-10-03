@@ -1,9 +1,6 @@
 
-
 import callAPI
-
 import updateTickers
-
 
 # financials
 
