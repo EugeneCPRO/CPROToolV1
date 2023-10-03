@@ -1,9 +1,7 @@
 
-# class for cleaning up strings
+# cleaning up terminal
 
 
-import re
-import ast
 
 
 class cleanUp(object):

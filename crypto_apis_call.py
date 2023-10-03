@@ -9,7 +9,7 @@ import time
 # initialisation
 mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"
 client = pymongo.MongoClient(mongo_uri)
-db = client["crypto_data"]
+db = client["user_wallet_balances"]
 url = str("https://rest.cryptoapis.io/v2/blockchain-data/")
 mUrl = str("https://rest.cryptoapis.io/market-data/exchange-rates/by-symbols/")
 network = "mainnet"

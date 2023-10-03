@@ -1,18 +1,22 @@
 import asyncio
+from clean_term import wipe
 from crypto_data_updater import CryptoDataUpdater
 from crypto_apis_call import WalletDataProcessor
+
 import pymongo
 
 
-# test inputs - will be part of menus
+wipe()
 
+# test inputs - will be part of menus
 what = str("bal") # tx = transactions, bal = balances
 name = str(input("Enter your name: "))
 address = str(input("Enter your address: "))
+wipe()
 
 # Replace with your MongoDB connection details
 mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"
-database_name = "crypto_data"  # Replace with the name of the database you want to check
+database_name = "user_wallet_balances"  # Replace with the name of the database you want to check
 collection_name = name
 
 def checkData(database_name,collection_name):
