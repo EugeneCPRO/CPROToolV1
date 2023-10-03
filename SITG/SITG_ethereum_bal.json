@@ -1,100 +1,16 @@
 {
     "apiVersion": "2023-04-25",
-    "requestId": "651bb47cbf9ae6cbf23b196c",
+    "requestId": "651bbabcefac6dcb69fbf0a5",
     "context": "SITG",
     "data": {
         "limit": 50,
         "offset": 0,
-        "total": 12,
+        "total": 0,
         "items": [
-            {
-                "contractAddress": "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
-                "type": "ERC-20",
-                "confirmedBalance": "7095.071986255003264717",
-                "name": "Synapse",
-                "symbol": "SYN"
-            },
-            {
-                "contractAddress": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
-                "type": "ERC-20",
-                "confirmedBalance": "504.575570569452132936",
-                "name": "Frax Share",
-                "symbol": "FXS"
-            },
-            {
-                "contractAddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
-                "type": "ERC-20",
-                "confirmedBalance": "318.692484122999975226",
-                "name": "ChainLink Token",
-                "symbol": "LINK"
-            },
-            {
-                "contractAddress": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
-                "type": "ERC-20",
-                "confirmedBalance": "2581.677725483173604295",
-                "name": "Lido DAO Token",
-                "symbol": "LDO"
-            },
-            {
-                "contractAddress": "0x68749665ff8d2d112fa859aa293f07a622782f38",
-                "type": "ERC-20",
-                "confirmedBalance": "13.261105",
-                "name": "Tether Gold",
-                "symbol": "XAUt"
-            },
-            {
-                "contractAddress": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
-                "type": "ERC-20",
-                "confirmedBalance": "1855.789042265551904287",
-                "name": "dYdX",
-                "symbol": "DYDX"
-            },
-            {
-                "contractAddress": "0xa5f2211b9b8170f694421f2046281775e8468044",
-                "type": "ERC-20",
-                "confirmedBalance": "19954.970993099874528085",
-                "name": "THORSwap Token",
-                "symbol": "THOR"
-            },
-            {
-                "contractAddress": "0xae78736cd615f374d3085123a210448e74fc6393",
-                "type": "ERC-20",
-                "confirmedBalance": "2.797305759536293799",
-                "name": "Rocket Pool ETH",
-                "symbol": "rETH"
-            },
-            {
-                "contractAddress": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-                "type": "ERC-20",
-                "confirmedBalance": "3.04226957758232413",
-                "name": "Liquid staked Ether 2.0",
-                "symbol": "stETH"
-            },
-            {
-                "contractAddress": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
-                "type": "ERC-20",
-                "confirmedBalance": "1313.21917",
-                "name": "Synthetix Network Token",
-                "symbol": "SNX"
-            },
-            {
-                "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-                "type": "ERC-20",
-                "confirmedBalance": "40.97089",
-                "name": "Tether USD",
-                "symbol": "USDT"
-            },
-            {
-                "contractAddress": "0xe60779cc1b2c1d0580611c526a8df0e3f870ec48",
-                "type": "ERC-20",
-                "confirmedBalance": "106255.159567809966037197",
-                "name": "unshETHing_Token",
-                "symbol": "USH"
-            },
             {
                 "contractAddress": "No Contract!",
                 "type": "ERC-20",
-                "confirmedBalance": "13.634056192649073327",
+                "confirmedBalance": "0",
                 "name": "Ether",
                 "symbol": "ETH"
             }

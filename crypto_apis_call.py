@@ -7,7 +7,7 @@ import json
 import time
 
 # initialisation
-mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"  # Replace with your MongoDB URI
+mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"
 client = pymongo.MongoClient(mongo_uri)
 db = client["crypto_data"]
 url = str("https://rest.cryptoapis.io/v2/blockchain-data/")
@@ -20,6 +20,8 @@ http = urllib3.PoolManager()
 def default(obj):
     return list(obj)
 
+
+# CryptoAPIs Headers
 def getHeaders():
 
     headers = {
@@ -29,6 +31,7 @@ def getHeaders():
 
     return headers
 
+# automated blockchain selection based on wallet format
 def identify_blockchain(address):
 
     address_lower = address.lower()
@@ -68,7 +71,7 @@ def reqcAPI(chain,address,what,name): # constructors for balance/transaction req
         reqTx = str(f'{url}{chain}/{network}{address}/{what}?context={name}{limit}')
         return reqTx
         
-# Function to process wallet data and save it to a file
+# Function to process wallet data and save it to a file, for local output testing
 def cAPIBal(chain, address, what, name):
     directory = f'./{name}/'
     filename = f'{directory}{name}_{chain}_{what}.json'
@@ -94,14 +97,11 @@ def cAPIBal(chain, address, what, name):
         data_dict[1]["data"]["items"].append(reformat_eth)
         data_dict = data_dict[1]
 
-        with open(filename, "w") as outfile:
-            json.dump(data_dict, outfile, indent=4)
-
         return data_dict
 
     else:
         reqs = reqcAPI(chain,address,what,name)
-        reqs = http.request("GET", reqs, headers=headers)  # Use "GET" instead of "Get"
+        reqs = http.request("GET", reqs, headers=headers)  
         json_data = reqs.data.decode("utf-8")
         data_dict = json.loads(json_data)
 
@@ -125,9 +125,6 @@ def cAPIBal(chain, address, what, name):
             }
         }
 
-        with open(filename, "w") as outfile:
-            json.dump(reformat_data, outfile, indent=4, default=default)
-
         return reformat_data
 
 class WalletDataProcessor:
@@ -135,7 +132,7 @@ class WalletDataProcessor:
         # Replace with your MongoDB connection details
         self.mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"  # Replace with your MongoDB URI
         self.client = pymongo.MongoClient(self.mongo_uri)
-        self.db = self.client["crypto_data"]
+        self.db = self.client["user_wallet_balances"]
         self.url = "https://rest.cryptoapis.io/v2/blockchain-data/"
         self.mUrl = "https://rest.cryptoapis.io/market-data/exchange-rates/by-symbols/"
         self.network = "mainnet"
