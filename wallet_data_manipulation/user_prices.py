@@ -1,19 +1,17 @@
 import json
 import pymongo
-from wallet_data_manipulation import cmc_api
+from wallet_data_manipulation.cmc_api import priceCall
 
 # Connect to MongoDB
 mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"
 client = pymongo.MongoClient(mongo_uri)
-
-
 
 def calculate_value_for_tickers(tickers, portfolio_data):
     # Split the tickers by comma and create a list
     tickers_list = tickers.split(',')
 
     # Call the function to retrieve prices for the tickers
-    price_data = cmc_api.priceCall(','.join(tickers_list))
+    price_data = priceCall(','.join(tickers_list))
 
     # Create an empty list to store the updated portfolio data
     updated_portfolio_data = []
@@ -70,13 +68,14 @@ def updatePortVal(name):
     fp = "test.json"
     with open(fp, "w") as outfile:
         json.dump(updated_data,outfile,indent=4)
-    
+
     # Save the updated portfolio data to MongoDB
     collection.update_one(
         {"_id": "TotalBalance"},
         {"$set": {"data": updated_data}},
         upsert=True
     )
+    print("\nPrices Updated")
 
     # Close the MongoDB client connection
     client.close()

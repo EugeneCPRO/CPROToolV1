@@ -9,7 +9,7 @@ wipe()
 
 testdata = input("Use previous data?")
 if testdata == "y":
-    name = str("SkinInTheGame")
+    name = str("SITG")
 else:
     # test inputs - will be part of menus
     what = str("bal") # tx = transactions, bal = balances
@@ -40,8 +40,6 @@ if __name__ == '__main__':
 
     # calculate portfolio values
     portfolio = updatePortVal(name)
-
-
 
     # # run price updates
     # updater = CryptoDataUpdater(

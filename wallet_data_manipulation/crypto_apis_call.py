@@ -83,7 +83,9 @@ def cAPIBal(chain, address, what, name):
         assets = {}
         for item in data_dict["data"]["items"]:
             ticker = item["symbol"]
-            assets[ticker] = {
+            tickerUp = item["symbol"].upper()
+            ticker = item["symbol"]
+            assets[tickerUp] = {
                 "contractAddress": item.get("contractAddress", "No Contract!"),
                 "type": item.get("type", "Unknown!"),
                 "confirmedBalance": item["confirmedBalance"],
@@ -114,7 +116,6 @@ def cAPIBal(chain, address, what, name):
 
 class WalletDataProcessor:
     def __init__(self, address, what, name):
-        # Replace with your MongoDB connection details
         self.mongo_uri = "mongodb+srv://eugened:jO5F7L1PU1VL1fh1@walletdb.yzkhawm.mongodb.net/?retryWrites=true&w=majority"  # Replace with your MongoDB URI
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client["user_wallet_balances"]
@@ -129,8 +130,6 @@ class WalletDataProcessor:
 
     # Function to fetch data from the CryptoAPIs and store it in MongoDB
     def fetch_and_store_data(self):
-        # Define the API URL with the provided wallet address
-        # Replace with your API key
         wallet_data = cAPIBal(self.chain, self.address, self.what, self.name)
         wallet_collection = self.db[self.name]  # Use the name as the database name
         # Insert or update wallet address data

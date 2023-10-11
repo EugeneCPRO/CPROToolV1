@@ -1,4 +1,4 @@
-import json
+
 import coinmarketcapapi
 
 # Initialize CoinMarketCap API
@@ -9,7 +9,11 @@ cmc = coinmarketcapapi.CoinMarketCapAPI('301f73fd-54ba-4fac-91bd-b599b50d3de5')
 # Call the function to retrieve prices
 def priceCall(symbols):
     symbols = "".join(symbols)
-    price_data_response = cmc.cryptocurrency_quotes_latest(symbol=symbols, convert='USD')
+    try:
+        price_data_response = cmc.cryptocurrency_quotes_latest(symbol=symbols, convert='USD')
+    except coinmarketcapapi.CoinMarketCapAPIError:
+        return
+
     filtered_data = {}
     # Check if the response contains data
     if price_data_response.data:
@@ -41,7 +45,6 @@ def priceCall(symbols):
                         "price": 0
                     }
 
-        print(filtered_data)
         return filtered_data
 
 

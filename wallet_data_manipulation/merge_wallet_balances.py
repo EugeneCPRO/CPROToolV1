@@ -1,5 +1,4 @@
 import pymongo
-import re
 class WalletDataMerger:
     def __init__(self, name):
         # Replace with your MongoDB connection details
@@ -9,15 +8,12 @@ class WalletDataMerger:
         self.collection_name = self.name  # Use the provided name as the collection name
 
     def clean_data(self, data):
-        # Regular expression pattern to match alphanumeric keys
-        alphanumeric_pattern = re.compile(r'^[a-zA-Z0-9_]+$')
-
         cleaned_data = {}
         for key, value in data.items():
+            symbol = value.get("symbol")
             if (
-                alphanumeric_pattern.match(key) and
-                len(key) <= 7 and
-                value.get("confirmedBalance", 0) != 0
+                len(symbol) <= 6 and
+                " " not in symbol
             ):
                 cleaned_data[key] = value
         return cleaned_data
@@ -47,6 +43,7 @@ class WalletDataMerger:
 
             # Clean the data before merging
             cleaned_data = self.clean_data(data_to_merge)
+            
 
             # Iterate through the cleaned data and merge it into the "TotalBalance" document
             for key, value in cleaned_data.items():
