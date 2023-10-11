@@ -31,7 +31,11 @@ def format_value(value):
     else:
         return "Unknown"
 
+# Global variable to store the initial sorted data
+sorted_data = []
+
 def update_tree_values(tree, collection, total_value_label):
+    global sorted_data
     while True:
         # Fetch wallet data
         wallet_data = fetch_wallet_balances(collection)
@@ -40,37 +44,43 @@ def update_tree_values(tree, collection, total_value_label):
             # Update prices along with wallet data
             updatePortVal(name)
 
-            # Sort the data by "value" field in descending order
-            sorted_data = sorted(wallet_data.items(), key=lambda item: item[1].get('value', 0), reverse=True)
-
-            # Clear existing items in the tree
-            tree.delete(*tree.get_children())
-
-            for asset, details in sorted_data:
-                confirmed_balance = details.get('confirmedBalance', 'Unknown')
-                current_value = details.get('value', 'Unknown')
-                previous_value = previous_values.get(asset, current_value)
-
-                # Get the item ID based on the asset or create a new one
-                item_id = tree.insert("", "end", values=(details["symbol"], round(float(confirmed_balance), 5), format_value(current_value)))
-
-                # Update the treeview item
-                tree.item(item_id, values=(details["symbol"], round(float(confirmed_balance), 5), format_value(current_value)))
-
-                # If the value increased, flash green for 0.75 seconds
-                if current_value > previous_value:
-                    tree.item(item_id, tags=('green',))
-                    tree.after(750, lambda i=item_id: tree.item(i, tags=()))
-                # If the value decreased, flash red for 0.75 seconds
-                elif current_value < previous_value:
-                    tree.item(item_id, tags=('red',))
-                    tree.after(750, lambda i=item_id: tree.item(i, tags=()))
-
-                previous_values[asset] = current_value
-
-            # Schedule the next update after 1.5 seconds (1500 milliseconds)
-            time.sleep(1.5)
+            # Sort the data by "value" field in descending order only if there's a change
+            new_sorted_data = sorted(wallet_data.items(), key=lambda item: item[1].get('value', 0), reverse=True)
             
+            if new_sorted_data != sorted_data:
+                # Clear existing items in the tree
+                tree.delete(*tree.get_children())
+
+                total_value = 0  # Initialize total value
+
+                for asset, details in new_sorted_data:
+                    confirmed_balance = details.get('confirmedBalance', 'Unknown')
+                    current_value = details.get('value', 'Unknown')
+
+                    # Get the item ID based on the asset or create a new one
+                    item_id = tree.insert("", "end", values=(details["symbol"], round(float(confirmed_balance), 5), format_value(current_value)))
+
+                    # If the value increased, flash green for 0.75 seconds
+                    if current_value > previous_values.get(asset, current_value):
+                        tree.item(item_id, tags=('green',))
+                        tree.after(500, lambda i=item_id: tree.item(i, tags=()))
+                    # If the value decreased, flash red for 0.75 seconds
+                    elif current_value < previous_values.get(asset, current_value):
+                        tree.item(item_id, tags=('red',))
+                        tree.after(500, lambda i=item_id: tree.item(i, tags=()))
+
+                    previous_values[asset] = current_value
+                    total_value += current_value  # Add current value to total
+
+                # Update the total portfolio value label
+                total_value_label.config(text=f"Total Portfolio Value: {format_value(total_value)}")
+
+                sorted_data = new_sorted_data
+                # Schedule the next update after 1.5 seconds (1500 milliseconds)
+                time.sleep(1.5)
+            else:
+                # No change, so check again after a shorter delay
+                time.sleep(1.5)
         else:
             # If the collection does not exist, wait for a while before checking again
             print("Data does not exist!")
