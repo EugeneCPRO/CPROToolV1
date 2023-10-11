@@ -1,0 +1,42 @@
+{
+    "SYN": {
+        "successProbability": 0.42133640660370486,
+        "expectedReturn": 17.46184455020155
+    },
+    "FXS": {
+        "successProbability": 0.4499714070951826,
+        "expectedReturn": 18.07743009908375
+    },
+    "LINK": {
+        "successProbability": 0.4481112715021812,
+        "expectedReturn": 3.209290622590292
+    },
+    "LDO": {
+        "successProbability": 0.5244744552156948,
+        "expectedReturn": 19.193724106669055
+    },
+    "DYDX": {
+        "successProbability": 0.5747806878943894,
+        "expectedReturn": 14.580286636724242
+    },
+    "THOR": {
+        "successProbability": 0.2051562378753479,
+        "expectedReturn": 6.63028280215751
+    },
+    "SNX": {
+        "successProbability": 0.3250950086515145,
+        "expectedReturn": 7.333930751049237
+    },
+    "USH": {
+        "successProbability": 0.18461867952649888,
+        "expectedReturn": 18.234616463620547
+    },
+    "ETH": {
+        "successProbability": 0.5680032128544807,
+        "expectedReturn": 19.064773087777173
+    },
+    "BTC": {
+        "successProbability": 0.4197121265377256,
+        "expectedReturn": 5.79457932041651
+    }
+}

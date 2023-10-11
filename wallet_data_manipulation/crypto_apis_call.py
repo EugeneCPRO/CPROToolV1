@@ -142,7 +142,7 @@ class WalletDataProcessor:
         print(f'Data for address {self.address} stored successfully.')
         return result
 
-    def cAPIPrice(self, ticker, base, name):
+    def cAPIPrice(ticker, base, name):
         # Time data
         headers = getHeaders()
         now = int(time.time())
@@ -150,7 +150,7 @@ class WalletDataProcessor:
         tstamp = "Timestamp=" + str(now)
         context = f'context={name}&calculation'
         # Create URL
-        reqUrl = f'{mUrl}{ticker}/{base}?{context}{tstamp}'
+        reqUrl = f'{mUrl}{ticker}/{base}?{context}{tstamp}' 
         pReq = http.request("GET", reqUrl, headers=headers)
         dec = pReq.data.decode("utf-8")
         dec = json.loads(dec)

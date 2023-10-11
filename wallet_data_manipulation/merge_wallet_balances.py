@@ -1,10 +1,5 @@
 import pymongo
-
-
-# this object merges all wallets within the usber_wallet_balance db
-# it takes the individual user as an input 
-# the purpose is to allow further calculation operations, and easy display of portfolio
-
+import re
 class WalletDataMerger:
     def __init__(self, name):
         # Replace with your MongoDB connection details
@@ -12,6 +7,21 @@ class WalletDataMerger:
         self.name = name
         self.database_name = "user_wallet_balances"
         self.collection_name = self.name  # Use the provided name as the collection name
+
+    def clean_data(self, data):
+        # Regular expression pattern to match alphanumeric keys
+        alphanumeric_pattern = re.compile(r'^[a-zA-Z0-9_]+$')
+
+        cleaned_data = {}
+        for key, value in data.items():
+            if (
+                alphanumeric_pattern.match(key) and
+                len(key) <= 7 and
+                value.get("confirmedBalance", 0) != 0
+            ):
+                cleaned_data[key] = value
+        return cleaned_data
+
 
     def merge_wallet_data(self):
         # Initialize the MongoClient
@@ -35,8 +45,11 @@ class WalletDataMerger:
             # Extract the data you want to merge (customize as needed)
             data_to_merge = document.get("data", {})
 
-            # Iterate through the data and merge it into the "TotalBalance" document
-            for key, value in data_to_merge.items():
+            # Clean the data before merging
+            cleaned_data = self.clean_data(data_to_merge)
+
+            # Iterate through the cleaned data and merge it into the "TotalBalance" document
+            for key, value in cleaned_data.items():
                 if key in merged_data["data"]:
                     # If the key already exists, update the value (e.g., add balances)
                     merged_data["data"][key].update(value)
@@ -59,4 +72,5 @@ class WalletDataMerger:
             print(f"{self.name} TotalBalance document created.")
         else:
             print(f"{self.name} TotalBalance document updated.")
+
 
