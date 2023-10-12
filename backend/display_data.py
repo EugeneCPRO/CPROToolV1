@@ -11,13 +11,21 @@ previous_values = {}
 asset_to_item = {}
 name = "SITG"
 
-# Function to fetch wallet data
+# Function to fetch wallet data from MongoDB
 def fetch_wallet_balances(collection):
-    wallet_data = collection.find_one({"_id": "TotalBalance"})
-    if wallet_data:
-        return wallet_data["data"]
-    else:
-        return {}
+    try:
+        wallet_data = collection.find_one({"_id": "TotalBalance"})
+        if wallet_data:
+            data = wallet_data.get("data", {})
+            # Convert the data to a list of dictionaries
+            portfolio_data = [{'asset': asset, 'balance': details.get('confirmedBalance', 'Unknown'), 'value': details.get('value', 'Unknown')} for asset, details in data.items()]
+            return portfolio_data
+        else:
+            print("Wallet Data unavailable.")
+            return []
+    except Exception as e:
+        print(f"Error fetching wallet data: {e}")
+        return []
 
 # Function to calculate the overall portfolio value
 def calculate_portfolio_value(wallet_data):

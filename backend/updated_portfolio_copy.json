@@ -1,0 +1,42 @@
+{
+    "SYN": {
+        "contractAddress": "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
+        "type": "ERC-20",
+        "confirmedBalance": "709.071986255003264717",
+        "name": "Synapse",
+        "symbol": "SYN",
+        "value": 100.0,
+        "successProbability": 0.29,
+        "expectedReturn": 10.62
+    },
+    "FXS": {
+        "contractAddress": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+        "type": "ERC-20",
+        "confirmedBalance": "504.575570569452132936",
+        "name": "Frax Share",
+        "symbol": "FXS",
+        "value": 200.0,
+        "successProbability": 0.15,
+        "expectedReturn": 5.03
+    },
+    "LINK": {
+        "contractAddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "type": "ERC-20",
+        "confirmedBalance": "318.692484122999975226",
+        "name": "ChainLink Token",
+        "symbol": "LINK",
+        "value": 300.0,
+        "successProbability": 0.29,
+        "expectedReturn": 14.54
+    },
+    "LDO": {
+        "contractAddress": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+        "type": "ERC-20",
+        "confirmedBalance": "581.677725483173604295",
+        "name": "Lido DAO Token",
+        "symbol": "LDO",
+        "value": 400.0,
+        "successProbability": 0.47,
+        "expectedReturn": 11.52
+    }
+}
