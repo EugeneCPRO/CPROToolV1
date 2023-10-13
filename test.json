@@ -5,7 +5,7 @@
         "confirmedBalance": "7095.071986255003264717",
         "name": "Synapse",
         "symbol": "SYN",
-        "value": 1941.760872744673
+        "value": 1945.8866080007163
     },
     "FXS": {
         "contractAddress": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
@@ -13,7 +13,7 @@
         "confirmedBalance": "504.575570569452132936",
         "name": "Frax Share",
         "symbol": "FXS",
-        "value": 2804.7062874637286
+        "value": 2838.8149069245296
     },
     "LINK": {
         "contractAddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
@@ -21,7 +21,7 @@
         "confirmedBalance": "318.692484122999975226",
         "name": "ChainLink Token",
         "symbol": "LINK",
-        "value": 2296.770381163557
+        "value": 2303.0668201277467
     },
     "LDO": {
         "contractAddress": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
@@ -29,7 +29,7 @@
         "confirmedBalance": "2581.677725483173604295",
         "name": "Lido DAO Token",
         "symbol": "LDO",
-        "value": 3887.654712512206
+        "value": 3902.4465454067436
     },
     "XAUT": {
         "contractAddress": "0x68749665ff8d2d112fa859aa293f07a622782f38",
@@ -37,7 +37,7 @@
         "confirmedBalance": "11.895105",
         "name": "Tether Gold",
         "symbol": "XAUt",
-        "value": 22344.114457930667
+        "value": 22342.956245709152
     },
     "DYDX": {
         "contractAddress": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
@@ -45,7 +45,7 @@
         "confirmedBalance": "1855.789042265551904287",
         "name": "dYdX",
         "symbol": "DYDX",
-        "value": 3384.177980010397
+        "value": 3395.324508204496
     },
     "THOR": {
         "contractAddress": "0xa5f2211b9b8170f694421f2046281775e8468044",
@@ -53,7 +53,7 @@
         "confirmedBalance": "34078.338961244686649901",
         "name": "THORSwap Token",
         "symbol": "THOR",
-        "value": 6055.135331855674
+        "value": 6068.841700896461
     },
     "RETH": {
         "contractAddress": "0xae78736cd615f374d3085123a210448e74fc6393",
@@ -61,7 +61,7 @@
         "confirmedBalance": "2.797305759536293799",
         "name": "Rocket Pool ETH",
         "symbol": "rETH",
-        "value": 4683.685273637236
+        "value": 4694.254002066263
     },
     "STETH": {
         "contractAddress": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
@@ -69,7 +69,7 @@
         "confirmedBalance": "3.044863832773913648",
         "name": "Liquid staked Ether 2.0",
         "symbol": "stETH",
-        "value": 4656.41182969952
+        "value": 4662.917675503769
     },
     "SNX": {
         "contractAddress": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
@@ -77,7 +77,7 @@
         "confirmedBalance": "1313.21917",
         "name": "Synthetix Network Token",
         "symbol": "SNX",
-        "value": 2421.956695574263
+        "value": 2431.895141031662
     },
     "USDT": {
         "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
@@ -85,7 +85,7 @@
         "confirmedBalance": "40.97089",
         "name": "Tether USD",
         "symbol": "USDT",
-        "value": 40.95596373483009
+        "value": 40.95907767601859
     },
     "USH": {
         "contractAddress": "0xe60779cc1b2c1d0580611c526a8df0e3f870ec48",
@@ -93,7 +93,7 @@
         "confirmedBalance": "106255.159567809966037197",
         "name": "unshETHing_Token",
         "symbol": "USH",
-        "value": 2790.349994944216
+        "value": 2797.6548948687855
     },
     "ETH": {
         "contractAddress": "No Contract!",
@@ -101,7 +101,7 @@
         "confirmedBalance": "13.634056192649073327",
         "name": "Ether",
         "symbol": "ETH",
-        "value": 20995.106965817995
+        "value": 21051.154139794216
     },
     "BTC": {
         "contractAddress": "No Contract!",
@@ -109,6 +109,6 @@
         "confirmedBalance": "1.46078073",
         "name": "BTC",
         "symbol": "BTC",
-        "value": 39109.74600604416
+        "value": 39171.493371114644
     }
 }
